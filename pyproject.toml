@@ -49,7 +49,9 @@ mkdocs-git-authors-plugin = "^0.7.1"
 [tool.coverage.run]
 branch = true
 source = ["dezzex_technology_pvt_ltd_real_time_messaging_challenge"]
-plugins = "django_coverage_plugin"
+plugins = [
+    'django_coverage_plugin',
+]
 
 [tool.coverage.report]
 show_missing = true
@@ -106,6 +108,7 @@ select = [
 ]
 show-fixes = true
 line-length = 88
+ignore = ["S101"]
 
 [tool.ruff.pydocstyle]
 convention = "google"
@@ -121,8 +124,8 @@ show_error_context = true
 [tool.pytest.ini_options]
 minversion = "6.0"
 DJANGO_SETTINGS_MODULE="dezzex_technology_pvt_ltd_real_time_messaging_challenge.settings"
-python_files = "tests.py test_*.py *_tests.py"
-addopts = "--cov"
+python_files = ["test_*.py", "*_test.py", "testing/python/*.py"]
+#addopts = "--cov"
 
 [build-system]
 requires = ["poetry-core"]
