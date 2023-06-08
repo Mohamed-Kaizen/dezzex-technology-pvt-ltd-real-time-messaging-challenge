@@ -54,4 +54,5 @@ class UserSchema(ModelSchema):
         """User schema config."""
 
         model = CustomUser
-        model_fields = ["username", "email", "full_name"]
+        model_fields = ["username", "email", "full_name", "password"]
+

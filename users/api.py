@@ -28,9 +28,13 @@ def create(request: WSGIRequest, payload: UserSchema) -> dict[str, str]:  # noqa
     }
 
 
-@router.get("/", response=UserSchema, auth=JWTAuth())
-def get_user(request) -> UserSchema:  # noqa
+@router.get("/", auth=JWTAuth())
+def get_user(request) -> dict:  # noqa
     """Get user details."""
     user: CustomUser = request.auth
 
-    return UserSchema.from_orm(user)
+    return {
+        "user": user.username,
+        "email": user.email,
+        "full_name": user.full_name,
+    }
