@@ -1,0 +1,82 @@
+site_name: Dezzex Technology Pvt Ltd real-time messaging challenge
+site_url: https://example.com
+site_author: Mohamed Nesredin
+site_description: >-
+  This is a project provide it by Dezzex Technology Pvt Ltd to build real-time messaging app
+
+repo_name: Mohamed-Kaizen/dezzex-technology-pvt-ltd-real-time-messaging-challenge
+repo_url: https://github.com/Mohamed-Kaizen/dezzex-technology-pvt-ltd-real-time-messaging-challenge/
+edit_uri: 'https://github.com/Mohamed-Kaizen/dezzex-technology-pvt-ltd-real-time-messaging-challenge/tree/master/docs'
+
+copyright: Copyright &copy; 2020 Mohamed Nesredin
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  icon:
+    repo: fontawesome/brands/github-alt
+  features:
+    - navigation.tabs
+    - navigation.instant # common this if you don't want SPA mode
+
+# google_analytics:
+#   - UA-XXXXXXXX-X
+#   - auto
+
+plugins:
+  - search
+  - git-authors:
+      show_contribution: true
+      show_line_count: true
+      count_empty_lines: true
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: timeago
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_source: true
+      watch:
+        - dezzex_technology_pvt_ltd_real_time_messaging_challenge
+
+nav:
+ - Home: 'index.md'
+
+
+markdown_extensions:
+  - meta
+  - abbr
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.tabbed
+  - footnotes
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
+  - attr_list
+  - def_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+
+extra_css:
+    - 'css/termynal.css'
+    - 'css/custom.css'
+
+extra_javascript:
+    - 'https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js'
+    - 'js/termynal.js'
+    - 'js/custom.js'
