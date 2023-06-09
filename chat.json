@@ -1,0 +1,104 @@
+[
+{
+    "model": "chat.room",
+    "pk": "0dae94f9-e182-4e01-9684-0077c63a61ec",
+    "fields": {}
+},
+{
+    "model": "chat.room",
+    "pk": "304e508e-4f21-40ce-87a5-353d9e9cb2c9",
+    "fields": {}
+},
+{
+    "model": "chat.room",
+    "pk": "6c219ace-fc64-45f7-86d4-4ba35a62f515",
+    "fields": {}
+},
+{
+    "model": "chat.participant",
+    "pk": "16dcd96c-5530-4054-9c18-2be0eb78cd33",
+    "fields": {
+        "user": "0e4146de-0c3f-4b72-82d3-047ece742fd9",
+        "room": "304e508e-4f21-40ce-87a5-353d9e9cb2c9"
+    }
+},
+{
+    "model": "chat.participant",
+    "pk": "2203c63e-3684-4fc6-bfe6-9a598d0bc9c1",
+    "fields": {
+        "user": "67ce58fd-2bf6-4d20-9d8d-f088449b1fa4",
+        "room": "6c219ace-fc64-45f7-86d4-4ba35a62f515"
+    }
+},
+{
+    "model": "chat.participant",
+    "pk": "52127503-b040-42dd-ba48-f5d9c01925ed",
+    "fields": {
+        "user": "67ce58fd-2bf6-4d20-9d8d-f088449b1fa4",
+        "room": "0dae94f9-e182-4e01-9684-0077c63a61ec"
+    }
+},
+{
+    "model": "chat.participant",
+    "pk": "c416d773-62c8-47ae-ba76-1ad5254abda3",
+    "fields": {
+        "user": "5dee6a2b-5643-4e86-8d11-e4a50b23e344",
+        "room": "304e508e-4f21-40ce-87a5-353d9e9cb2c9"
+    }
+},
+{
+    "model": "chat.message",
+    "pk": "557f543b-2f97-4bcd-8d19-37e13a5c8c7f",
+    "fields": {
+        "room": "304e508e-4f21-40ce-87a5-353d9e9cb2c9",
+        "sender": "0e4146de-0c3f-4b72-82d3-047ece742fd9",
+        "content": "hi",
+        "created_at": "2023-06-09T07:54:49.075Z",
+        "updated_at": "2023-06-09T07:54:49.075Z"
+    }
+},
+{
+    "model": "chat.message",
+    "pk": "6a74500f-4fde-4ede-b2d7-5fa970065121",
+    "fields": {
+        "room": "304e508e-4f21-40ce-87a5-353d9e9cb2c9",
+        "sender": "0e4146de-0c3f-4b72-82d3-047ece742fd9",
+        "content": "hi",
+        "created_at": "2023-06-09T07:59:02.346Z",
+        "updated_at": "2023-06-09T07:59:02.346Z"
+    }
+},
+{
+    "model": "chat.message",
+    "pk": "8aa0f95e-44c5-4d3c-a4c4-9ea052a354ed",
+    "fields": {
+        "room": "304e508e-4f21-40ce-87a5-353d9e9cb2c9",
+        "sender": "5dee6a2b-5643-4e86-8d11-e4a50b23e344",
+        "content": "Hello",
+        "created_at": "2023-06-09T08:19:36.449Z",
+        "updated_at": "2023-06-09T08:19:36.449Z"
+    }
+},
+{
+    "model": "chat.message",
+    "pk": "b7cdf455-e5d1-47a3-9fbc-0abe25fbe241",
+    "fields": {
+        "room": "304e508e-4f21-40ce-87a5-353d9e9cb2c9",
+        "sender": "0e4146de-0c3f-4b72-82d3-047ece742fd9",
+        "content": "hi",
+        "created_at": "2023-06-09T08:01:36.971Z",
+        "updated_at": "2023-06-09T08:01:36.971Z"
+    }
+},
+{
+    "model": "chat.message",
+    "pk": "fe953113-5a05-48c9-bde7-ca88fbda2c8f",
+    "fields": {
+        "room": "304e508e-4f21-40ce-87a5-353d9e9cb2c9",
+        "sender": "0e4146de-0c3f-4b72-82d3-047ece742fd9",
+        "content": "hi",
+        "created_at": "2023-06-09T07:53:17.723Z",
+        "updated_at": "2023-06-09T07:53:17.723Z"
+    }
+}
+]

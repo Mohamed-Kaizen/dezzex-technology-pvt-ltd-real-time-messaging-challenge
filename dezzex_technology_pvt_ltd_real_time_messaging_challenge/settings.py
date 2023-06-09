@@ -1,5 +1,6 @@
 """Django base settings for Dezzex Technology Pvt Ltd real-time messaging challenge project."""
 import pathlib
+from datetime import timedelta
 
 from decouple import Csv, config
 from dj_database_url import parse as db_url
@@ -49,7 +50,7 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = ["corsheaders", "ninja", "ninja_extra", "ninja_jwt.token_blacklist"]
 
-LOCAL_APPS = ["users.apps.UsersConfig"]
+LOCAL_APPS = ["users.apps.UsersConfig", "chat.apps.ChatConfig"]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -273,6 +274,13 @@ if DEBUG:
 CORS_ALLOW_ALL_ORIGINS = DEBUG
 if not DEBUG:
     CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", cast=Csv(str))
+
+# django-ninja-jwt
+# ------------------------------------------------------------------------------
+# https://eadwincode.github.io/django-ninja-jwt/settings/
+NINJA_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
+}
 
 # Your settings...
 # ------------------------------------------------------------------------------

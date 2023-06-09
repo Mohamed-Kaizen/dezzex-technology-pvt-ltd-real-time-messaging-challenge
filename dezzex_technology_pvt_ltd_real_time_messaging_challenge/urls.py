@@ -8,12 +8,14 @@ from ninja_extra import NinjaExtraAPI
 from ninja_jwt.controller import NinjaJWTDefaultController
 
 from users.api import router as users_router
+from chat.api import router as chat_router
 
 api = NinjaExtraAPI()
 
 api.register_controllers(NinjaJWTDefaultController)
 
 api.add_router("/users/", users_router, tags=["users"])
+api.add_router("/chat/", chat_router, tags=["chat"])
 
 urlpatterns = i18n_patterns(
     path(f"{settings.ADMIN_URL}", admin.site.urls),

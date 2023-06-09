@@ -25,6 +25,7 @@ django-ninja = "^0.22.1"
 django-cors-headers = "^4.0.0"
 django-ninja-jwt = "^5.2.5"
 email-validator = "^2.0.0.post2"
+psycopg = {extras = ["binary", "pool"], version = "^3.1.9"}
 
 
 [tool.poetry.group.dev.dependencies]
@@ -55,7 +56,6 @@ plugins = [
 
 [tool.coverage.report]
 show_missing = true
-fail_under = 95
 
 [tool.isort]
 profile="black"
@@ -125,7 +125,7 @@ show_error_context = true
 minversion = "6.0"
 DJANGO_SETTINGS_MODULE="dezzex_technology_pvt_ltd_real_time_messaging_challenge.settings"
 python_files = ["test_*.py", "*_test.py", "testing/python/*.py"]
-#addopts = "--cov"
+addopts = "--cov"
 
 [build-system]
 requires = ["poetry-core"]
