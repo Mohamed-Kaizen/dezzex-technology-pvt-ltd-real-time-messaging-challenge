@@ -17,8 +17,27 @@ theme:
     repo: fontawesome/brands/github-alt
   features:
     - navigation.tabs
-    - navigation.instant # common this if you don't want SPA mode
-
+    - navigation.tabs
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.tabs.link
+    - content.code.annotate
+    - social
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
 # google_analytics:
 #   - UA-XXXXXXXX-X
 #   - auto
@@ -34,30 +53,44 @@ plugins:
   - git-revision-date-localized:
       type: timeago
   - mkdocstrings:
-      default_handler: python
       handlers:
         python:
-          rendering:
-            show_source: true
-      watch:
-        - dezzex_technology_pvt_ltd_real_time_messaging_challenge
+          setup_commands:
+            - import os
+            - import django
+            - os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dezzex_technology_pvt_ltd_real_time_messaging_challenge.settings")
+            - django.setup()
 
 nav:
- - Home: 'index.md'
+  - Home: 'index.md'
+  - API:
+      - Users:
+          - API: "api/users/api.md"
+          - Models: "api/users/models.md"
+          - Schema: "api/users/schema.md"
+          - Validators: 'api/users/validators.md'
+      - Chat:
+          - API: "api/chat/api.md"
+          - Consumers: 'api/chat/consumers.md'
+          - Models: "api/chat/models.md"
+          - Schema: "api/chat/schema.md"
 
 
 markdown_extensions:
   - meta
   - abbr
+  - tables
   - pymdownx.snippets
   - admonition
   - pymdownx.details
   - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.keys
-  - pymdownx.snippets
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - footnotes
   - pymdownx.caret
   - pymdownx.mark
@@ -65,9 +98,7 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - attr_list
   - def_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - md_in_html
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: true

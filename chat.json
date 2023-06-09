@@ -1,17 +1,7 @@
 [
 {
     "model": "chat.room",
-    "pk": "0dae94f9-e182-4e01-9684-0077c63a61ec",
-    "fields": {}
-},
-{
-    "model": "chat.room",
     "pk": "304e508e-4f21-40ce-87a5-353d9e9cb2c9",
-    "fields": {}
-},
-{
-    "model": "chat.room",
-    "pk": "6c219ace-fc64-45f7-86d4-4ba35a62f515",
     "fields": {}
 },
 {
@@ -20,22 +10,6 @@
     "fields": {
         "user": "0e4146de-0c3f-4b72-82d3-047ece742fd9",
         "room": "304e508e-4f21-40ce-87a5-353d9e9cb2c9"
-    }
-},
-{
-    "model": "chat.participant",
-    "pk": "2203c63e-3684-4fc6-bfe6-9a598d0bc9c1",
-    "fields": {
-        "user": "67ce58fd-2bf6-4d20-9d8d-f088449b1fa4",
-        "room": "6c219ace-fc64-45f7-86d4-4ba35a62f515"
-    }
-},
-{
-    "model": "chat.participant",
-    "pk": "52127503-b040-42dd-ba48-f5d9c01925ed",
-    "fields": {
-        "user": "67ce58fd-2bf6-4d20-9d8d-f088449b1fa4",
-        "room": "0dae94f9-e182-4e01-9684-0077c63a61ec"
     }
 },
 {

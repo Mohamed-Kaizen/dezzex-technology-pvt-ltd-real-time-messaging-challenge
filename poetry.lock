@@ -1398,12 +1398,28 @@ Markdown = ">=3.3"
 MarkupSafe = ">=1.1"
 mkdocs = ">=1.2"
 mkdocs-autorefs = ">=0.3.1"
+mkdocstrings-python-legacy = {version = ">=0.2.1", optional = true, markers = "extra == \"python-legacy\""}
 pymdown-extensions = ">=6.3"
 
 [package.extras]
 crystal = ["mkdocstrings-crystal (>=0.3.4)"]
 python = ["mkdocstrings-python (>=0.5.2)"]
 python-legacy = ["mkdocstrings-python-legacy (>=0.2.1)"]
+
+[[package]]
+name = "mkdocstrings-python-legacy"
+version = "0.2.3"
+description = "A legacy Python handler for mkdocstrings."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "mkdocstrings-python-legacy-0.2.3.tar.gz", hash = "sha256:3fb58fdabe19c6b52b8bb1d3bb1540b1cd527b562865468d6754e8cd1201050c"},
+    {file = "mkdocstrings_python_legacy-0.2.3-py3-none-any.whl", hash = "sha256:1b04d71a4064b0bb8ea9448debab89868a752c7e7bfdd11de480dfbcb9751a00"},
+]
+
+[package.dependencies]
+mkdocstrings = ">=0.19"
+pytkdocs = ">=0.14"
 
 [[package]]
 name = "mypy"
@@ -1966,6 +1982,20 @@ files = [
     {file = "python-decouple-3.8.tar.gz", hash = "sha256:ba6e2657d4f376ecc46f77a3a615e058d93ba5e465c01bbe57289bfb7cce680f"},
     {file = "python_decouple-3.8-py3-none-any.whl", hash = "sha256:d0d45340815b25f4de59c974b855bb38d03151d81b037d9e3f463b0c9f8cbd66"},
 ]
+
+[[package]]
+name = "pytkdocs"
+version = "0.16.1"
+description = "Load Python objects documentation."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pytkdocs-0.16.1-py3-none-any.whl", hash = "sha256:a8c3f46ecef0b92864cc598e9101e9c4cf832ebbf228f50c84aa5dd850aac379"},
+    {file = "pytkdocs-0.16.1.tar.gz", hash = "sha256:e2ccf6dfe9dbbceb09818673f040f1a7c32ed0bffb2d709b06be6453c4026045"},
+]
+
+[package.extras]
+numpy-style = ["docstring_parser (>=0.7)"]
 
 [[package]]
 name = "pytz"
@@ -2629,4 +2659,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "4a70399d4ae9a88c142dda422727e26f93c85c46158a6b6e66596d73a33c79c3"
+content-hash = "2cc3c7317203d0f990a0fd1f5986e713ff273a2a2c4d4fbc1d8e594fb30b62f6"
