@@ -1,7 +1,11 @@
 """Collection of model."""
 import uuid
 
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
 
 
@@ -104,3 +108,22 @@ class Message(models.Model):
     def __str__(self: "Message") -> str:
         """It returns readable name for the model."""
         return f"{self.sender.username} in {self.room.id}"
+
+
+@receiver(post_save, sender=Message)
+def message_created(sender, instance, created, **kwargs: dict) -> None:  # noqa
+    """Send message to room group."""
+    if created:
+        from .schema import MessageSchema
+
+        message = MessageSchema.from_orm(instance)
+
+        channel_layer = get_channel_layer()
+
+        async_to_sync(channel_layer.group_send)(
+            f"chat_{instance.room.id}",
+            {
+                "type": "chat_message",
+                "message": message.json(),
+            },
+        )

@@ -26,6 +26,7 @@ django-cors-headers = "^4.0.0"
 django-ninja-jwt = "^5.2.5"
 email-validator = "^2.0.0.post2"
 psycopg = {extras = ["binary", "pool"], version = "^3.1.9"}
+channels = {extras = ["daphne"], version = "^4.0.0"}
 
 
 [tool.poetry.group.dev.dependencies]
@@ -46,6 +47,7 @@ mkdocstrings = "^0.22.0"
 mkdocs-minify-plugin = "^0.6.4"
 mkdocs-git-revision-date-localized-plugin = "^1.2.0"
 mkdocs-git-authors-plugin = "^0.7.1"
+pytest-asyncio = "^0.21.0"
 
 [tool.coverage.run]
 branch = true

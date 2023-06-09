@@ -35,6 +35,9 @@ ROOT_URLCONF = "dezzex_technology_pvt_ltd_real_time_messaging_challenge.urls"
 WSGI_APPLICATION = (
     "dezzex_technology_pvt_ltd_real_time_messaging_challenge.wsgi.application"
 )
+ASGI_APPLICATION = (
+    "dezzex_technology_pvt_ltd_real_time_messaging_challenge.asgi.application"
+)
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -44,11 +47,18 @@ DJANGO_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "daphne",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "django.contrib.sites",
 ]
-THIRD_PARTY_APPS = ["corsheaders", "ninja", "ninja_extra", "ninja_jwt.token_blacklist"]
+THIRD_PARTY_APPS = [
+    "corsheaders",
+    "ninja",
+    "ninja_extra",
+    "ninja_jwt.token_blacklist",
+    "channels",
+]
 
 LOCAL_APPS = ["users.apps.UsersConfig", "chat.apps.ChatConfig"]
 
@@ -60,7 +70,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",  # django-cors-headers
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # whitenoise
+    # "whitenoise.middleware.WhiteNoiseMiddleware",  # whitenoise
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -234,10 +244,14 @@ DATABASES = {
 # Third-Party Settings
 # whitenoise
 # ------------------------------------------------------------------------------
-if DEBUG:
-    INSTALLED_APPS.insert(0, "whitenoise.runserver_nostatic")
+# if DEBUG:
+#
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# channels
+# ------------------------------------------------------------------------------
+CHANNEL_LAYERS = {
+    "default": {"BACKEND": "channels.layers.InMemoryChannelLayer"},
+}
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
@@ -279,7 +293,7 @@ if not DEBUG:
 # ------------------------------------------------------------------------------
 # https://eadwincode.github.io/django-ninja-jwt/settings/
 NINJA_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1) if DEBUG else timedelta(minutes=5),
 }
 
 # Your settings...
