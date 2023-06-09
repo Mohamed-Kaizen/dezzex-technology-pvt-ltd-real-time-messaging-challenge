@@ -151,6 +151,17 @@ In this example we will use  <a href="https://hoppscotch.io/realtime/websocket" 
 ![Image title](/img/2023-06-09_18-02.png)
 
 
+#### 7. Run the tests:
+
+<div class="termy">
+
+```console
+$ python manage.py runserver
+
+================= 9 passed in 0.69s ===============
+```
+</div>
+
 # License: MIT
 
 
